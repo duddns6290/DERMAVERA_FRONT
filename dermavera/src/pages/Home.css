@@ -1,0 +1,79 @@
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 230px 250px;
+    background: linear-gradient(
+        180deg,
+        #f6fbfc 0%,
+        #ffffff 100%
+  );
+}
+
+.home-conent {
+    max-width: 600px;
+}
+
+.home-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.home-desc {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.home-button {
+    background-color: #2fa4a9;
+    color: white;
+    border: none;
+
+    padding: 16px 28px;
+    font-size: 25px;
+    font-weight: 600;
+
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(47, 164, 169, 0.25);
+
+    transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-button:hover {
+    background-color: #2fa4a9;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(47, 164, 169, 0.35);
+}
+
+.home-visual {
+    width: 480px;
+    height: 280px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-logo-img {
+    width: 520px;
+    -webkit-mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    opacity: 0.95;
+    border-radius: 16px;
+}
+
