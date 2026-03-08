@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import "./Login.css";
-import logo from "../../assets/logo/logo.svg";
+import logo from "../../assets/logo/logo.png";
 import { login as apiLogin, fetchMe, setToken } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
 

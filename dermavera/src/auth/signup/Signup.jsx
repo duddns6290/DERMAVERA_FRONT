@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
-import logo from "../../assets/logo/logo.svg";
+import logo from "../../assets/logo/logo.png";
 import { signup as apiSignup } from "../../api/client";
 
 export default function Signup() {

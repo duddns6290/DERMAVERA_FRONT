@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Diagnosis.css";
-import logo from "../assets/logo/logo.svg";
+import logo from "../assets/logo/logo.png";
 import { getToken, getStoredUser, fetchMyAnimals, diagnoseSkin } from "../api/client";
 
 const BODY_PARTS = [
