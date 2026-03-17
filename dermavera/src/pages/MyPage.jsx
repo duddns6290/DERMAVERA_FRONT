@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./MyPage.css";
-import { getStoredUser, getToken, fetchMyAnimals, createAnimal, fetchDiagnoses } from "../api/client";
+import { getStoredUser, getToken, fetchMyAnimals, createAnimal, fetchDiagnoses, updateAnimal, deleteAnimal } from "../api/client";
 
 function formatDiagnosisDate(createdDate) {
   if (!createdDate) return "—";
@@ -104,9 +104,13 @@ export default function MyPage() {
         const created = await createAnimal(user.userPk, body);
         setPets((prev) => [...prev, created]);
       } else {
-        setSaveError("수정 API가 없습니다. 백엔드에 PUT 엔드포인트를 추가해 주세요.");
-        setSaveLoading(false);
-        return;
+        const updated = await updateAnimal(user.userPk, editingPetId, body);
+
+        setPets((prev) =>
+          prev.map((pet) =>
+            pet.id === editingPetId ? updated : pet
+          )
+        );
       }
       setShowModal(false);
       setEditingPetId(null);
@@ -117,11 +121,19 @@ export default function MyPage() {
     }
   };
 
-  const handleDeletePet = (id) => {
-    if (window.confirm("정말 삭제하시겠습니까?")) {
-      setPets((prev) => prev.filter((pet) => pet.id !== id));
-    }
-  };
+const handleDeletePet = async (id) => {
+  if (!window.confirm("정말 삭제하시겠습니까?")) return;
+
+  try {
+    console.log("삭제 요청 보냄"); 
+
+    await deleteAnimal(user.userPk, id);
+
+    setPets((prev) => prev.filter((pet) => pet.id !== id));
+  } catch (err) {
+    alert(err.message || "삭제 실패");
+  }
+};
 
   const openDetailDiagnosis = (d) => {
     setOpenDiagMenuId(null);

@@ -203,3 +203,33 @@ export async function diagnoseSkin(userPk, animalId, formData) {
   }
   return res.json();
 }
+
+export async function updateAnimal(userPk, animalId, body) {
+  const res = await fetch(`/api/mypage/users/${userPk}/animals/${animalId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      ...authHeaders(),
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || "수정 실패");
+  }
+
+  return res.json();
+}
+
+export async function deleteAnimal(userPk, animalId) {
+  const res = await fetch(`/api/mypage/users/${userPk}/animals/${animalId}`, {
+    method: "DELETE",
+    headers: { ...authHeaders() },
+  });
+
+  if (!res.ok) {
+    throw new Error("삭제 실패");
+  }
+}
+
