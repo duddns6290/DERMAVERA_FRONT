@@ -1,8 +1,10 @@
 .home {
+  flex-wrap: wrap;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 230px 250px;
+  gap: 40px;
+  padding: 100px 5%;
   background: linear-gradient(
     180deg,
     #f6fbfc 0%,
@@ -60,15 +62,13 @@
 }
 
 .home-visual {
-  width: 480px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 480px;
 }
 
 .home-logo-img {
-  width: 520px;
-  opacity: 0.95;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
   border-radius: 16px;
 }
